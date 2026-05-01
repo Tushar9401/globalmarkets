@@ -25,6 +25,7 @@ export default function ContactPage() {
 
   const handleContactSubmit = async (event) => {
     event.preventDefault();
+    const form = event.currentTarget;
 
     if (!web3FormsAccessKey) {
       setSubmitStatus(
@@ -36,28 +37,37 @@ export default function ContactPage() {
     setIsSending(true);
     setSubmitStatus("");
 
-    const formData = new FormData(event.currentTarget);
+    const formData = new FormData(form);
     formData.append("access_key", web3FormsAccessKey);
     formData.append("subject", "New Global Market contact request");
     formData.append("from_name", "Global Market Website");
-    formData.append("to", contactEmail);
+    formData.append("replyto", formData.get("email"));
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         body: formData,
       });
-      const result = await response.json();
+      const responseText = await response.text();
+      let result = {};
 
-      if (!response.ok || !result.success) {
+      try {
+        result = responseText ? JSON.parse(responseText) : {};
+      } catch {
+        result = {};
+      }
+
+      if (!response.ok || result.success === false) {
         throw new Error(result.message || "Unable to send message.");
       }
 
-      event.currentTarget.reset();
+      form.reset();
       setSubmitStatus("Thank you. Your request has been sent successfully.");
     } catch (error) {
       setSubmitStatus(
-        "Sorry, the message could not be sent right now. Please email us directly.",
+        error.message
+          ? `Sorry, the message could not be sent right now. ${error.message}`
+          : "Sorry, the message could not be sent right now. Please email us directly.",
       );
     } finally {
       setIsSending(false);
