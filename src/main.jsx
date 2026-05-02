@@ -344,6 +344,33 @@ function OfferSection() {
             <small>up to 20 Gallons</small>
           </div>
         </article>
+
+        <article className="offer-card breakfast-offer">
+          <div className="breakfast-copy">
+            <span className="offer-tag breakfast-tag">
+              <Beef size={18} /> Our Southern Breakfast
+            </span>
+            <h2>
+              Hot Southern breakfast, <strong>served fresh.</strong>
+            </h2>
+            <p>
+              Start your morning with grits, scrambled eggs, sausages, shrimp
+              and grits, salmon, bacon, and more comfort favorites.
+            </p>
+          </div>
+          <div className="breakfast-menu" aria-label="Southern breakfast menu">
+            {[
+              "Grits",
+              "Scrambled Eggs",
+              "Sausages",
+              "Shrimp & Grits",
+              "Salmon",
+              "Bacon",
+            ].map((item) => (
+              <span key={item}>{item}</span>
+            ))}
+          </div>
+        </article>
       </div>
     </section>
   );

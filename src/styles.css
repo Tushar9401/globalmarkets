@@ -503,6 +503,71 @@ video {
   font-size: 0.78rem;
 }
 
+.breakfast-offer {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: minmax(0, 0.9fr) minmax(260px, 0.8fr);
+  gap: clamp(24px, 4vw, 48px);
+  align-items: center;
+  border-color: rgba(255, 191, 96, 0.24);
+  background:
+    radial-gradient(circle at 12% 12%, rgba(255, 199, 92, 0.32), transparent 18rem),
+    radial-gradient(circle at 88% 28%, rgba(229, 49, 37, 0.24), transparent 16rem),
+    linear-gradient(135deg, #241207, #41200c 48%, #0b2522);
+}
+
+.breakfast-offer::before {
+  background:
+    linear-gradient(110deg, rgba(255, 189, 88, 0.2), transparent 34%),
+    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0 1px, transparent 1px 20px);
+}
+
+.breakfast-tag {
+  color: #ffe2a8;
+  background: rgba(255, 194, 92, 0.16);
+}
+
+.breakfast-copy {
+  position: relative;
+}
+
+.breakfast-copy h2 strong {
+  color: #ffc861;
+}
+
+.breakfast-menu {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.breakfast-menu span {
+  display: flex;
+  min-height: 58px;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  border: 1px solid rgba(255, 226, 168, 0.28);
+  border-radius: 8px;
+  color: #fff7e8;
+  background: rgba(255, 255, 255, 0.1);
+  font-weight: 900;
+  text-align: center;
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.breakfast-menu span:hover {
+  border-color: rgba(255, 200, 97, 0.72);
+  color: #241207;
+  background: #ffc861;
+  transform: translateY(-4px);
+}
+
 .section {
   width: min(1180px, calc(100% - 40px));
   margin: 0 auto;
@@ -2173,7 +2238,8 @@ video {
   }
 
   .offer-grid,
-  .offer-card-wide {
+  .offer-card-wide,
+  .breakfast-offer {
     grid-template-columns: 1fr;
   }
 
@@ -2187,6 +2253,10 @@ video {
 
   .offer-badge {
     min-height: 210px;
+  }
+
+  .breakfast-menu {
+    grid-template-columns: 1fr;
   }
 
   .section h2 {
