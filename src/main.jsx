@@ -335,7 +335,8 @@ function OfferSection() {
             <h2>
               Get <strong>25¢ off</strong>
             </h2>
-            <p>Pair your car wash visit with your next fill-up for extra savings.</p>
+            <p>Pair your car wash visit with your fill-up for extra savings.</p>
+            <p>Please bundle your service at the time of the car wash, not during fuel payment.</p>
           </div>
           <div className="offer-badge" aria-hidden="true">
             <b>25¢</b>
