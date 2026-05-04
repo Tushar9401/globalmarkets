@@ -45,6 +45,8 @@ const image = {
   deli: "https://globalmarketsc.com//assets/uploads/sliders/1744190324992931.jpg",
   pumps: "https://globalmarketsc.com//assets/images/oill/choose-bg.jpg",
   shelves: "https://globalmarketsc.com//assets/uploads/sliders/1744610478578718.jpg",
+  galleryNight: "/images/global-market-gallery-night.jpeg",
+  galleryDusk: "/images/global-market-gallery-dusk.jpeg",
 };
 
 const facilities = [
@@ -518,7 +520,13 @@ function Testimonials() {
 }
 
 function Gallery() {
-  const galleryImages = [image.storefront, image.store, image.deli, image.carwash, image.shelves];
+  const galleryImages = [
+    image.galleryNight,
+    image.galleryDusk,
+    image.deli,
+    image.carwash,
+    image.shelves,
+  ];
   const [activeSlide, setActiveSlide] = useState(0);
   const orderedImages = [
     ...galleryImages.slice(activeSlide),
